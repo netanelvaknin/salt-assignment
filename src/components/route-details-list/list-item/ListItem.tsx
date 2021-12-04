@@ -60,7 +60,7 @@ export const ListItem = ({
 
 const StyledPaper = styled(Paper)`
   padding: 16px;
-  margin: 10px 10px 25px;
+  margin: 10px 10px 15px;
   border-radius: 0;
 `;
 

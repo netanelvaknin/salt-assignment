@@ -13,8 +13,8 @@ import { SearchField, Apply } from "./Filter.styled";
 
 export const Filter = () => {
   const { details, setFilteredDetails } = useContext(RouteDetailsContext);
-  const [showOnlyPii, setShowOnlyPii] = useState(false);
-  const [keyword, setKeyword] = useState("");
+  const [showOnlyPii, setShowOnlyPii] = useState<boolean>(false);
+  const [keyword, setKeyword] = useState<string>("");
 
   useEffect(() => {
     if (keyword === "") {

@@ -8,7 +8,7 @@ import Filter from "../../components/filter/Filter";
 
 export const RouteDetails = () => {
   const { details, filteredDetails } = useContext(RouteDetailsContext);
-  const [tab, setTab] = useState(0);
+  const [tab, setTab] = useState<number>(0);
   const tabsData = [filteredDetails?.request, filteredDetails?.response];
   const selectedTabData = tabsData[tab];
 
