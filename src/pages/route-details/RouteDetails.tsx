@@ -6,9 +6,10 @@ import EndpointDetails from "../../components/endpoint-details/EndpointDetails";
 import Filter from "../../components/filter/Filter";
 
 export const RouteDetails = () => {
-  const { details } = useContext(RouteDetailsContext);
+  const { details, filteredDetails } = useContext(RouteDetailsContext);
   const [tab, setTab] = useState(0);
-  const tabsData = [details?.request, details?.response];
+  const tabsData = [filteredDetails?.request, filteredDetails?.response];
+  const selectedTabData = tabsData[tab];
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setTab(newValue);
@@ -29,7 +30,7 @@ export const RouteDetails = () => {
 
       <Filter />
 
-      <EndpointDetails value={tab} data={tabsData[tab]} />
+      <EndpointDetails value={tab} data={selectedTabData} />
     </div>
   );
 };

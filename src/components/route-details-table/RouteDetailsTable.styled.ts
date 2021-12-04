@@ -6,6 +6,7 @@ interface ButtonProps {
 
 export const RowHeading = styled("tr")`
   font-weight: bold;
+  cursor: pointer;
 `;
 
 export const PIIButton = styled(Button)<ButtonProps>(({ isActive }) => ({

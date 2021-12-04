@@ -9,6 +9,7 @@ interface RouteDetailsProps {
 
 export const RouteDetails = ({ children }: RouteDetailsProps) => {
   const [details, setDetails] = useState<any>(null);
+  const [filteredDetails, setFilteredDetails] = useState<any>(details);
 
   useEffect(function getRouteDetails() {
     (async () => {
@@ -17,6 +18,7 @@ export const RouteDetails = ({ children }: RouteDetailsProps) => {
 
         if (data) {
           setDetails(data);
+          setFilteredDetails(data);
         }
       } catch (error) {
         alert("Something went wrong...");
@@ -28,7 +30,9 @@ export const RouteDetails = ({ children }: RouteDetailsProps) => {
     <RouteDetailsContext.Provider
       value={{
         details,
+        filteredDetails,
         setDetails,
+        setFilteredDetails,
       }}
     >
       {children}

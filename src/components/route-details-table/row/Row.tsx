@@ -29,7 +29,7 @@ export const Row = ({
           isActive={pii}
           onClick={() => handleToggleButton(field, "pii", index)}
         >
-          pii btn
+          PII
         </PIIButton>
       </td>
       <td>
@@ -37,10 +37,10 @@ export const Row = ({
           isActive={masked}
           onClick={() => handleToggleButton(field, "masked", index)}
         >
-          masked btn
+          MASKED
         </MaskedButton>
       </td>
-      <td>{type}</td>
+      <td>{type.toUpperCase()}</td>
     </tr>
   );
 };
