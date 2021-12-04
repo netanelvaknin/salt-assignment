@@ -1,5 +1,5 @@
 import TabPanel from "../tab-panel/TabPanel";
-import RouteDetailsTable from "../route-details-table/RouteDetailsTable";
+import RouteDetailsTable from "../route-details-list/RouteDetailsList";
 
 interface EndpointDetailsProps {
   value: number;

@@ -1,4 +1,5 @@
-import { Breadcrumbs } from "@mui/material";
+import { Breadcrumbs, Divider } from "@mui/material";
+import { HeaderContainer, Method, Path, Crumb } from "./Header.styled";
 
 interface HeaderProps {
   api?: string;
@@ -8,15 +9,16 @@ interface HeaderProps {
 
 export const Header = ({ api, method, path }: HeaderProps) => {
   return (
-    <header>
-      <span>{method?.toUpperCase()}</span>
-      <span>{path}</span>
+    <HeaderContainer>
+      <Method>{method?.toUpperCase()}</Method>
+      <Path>{path}</Path>
       <Breadcrumbs aria-label="breadcrumb" separator="›">
-        <span>All APIs</span>
-        <span>{api}</span>
-        <span>{path}</span>
+        <Crumb>All APIs</Crumb>
+        <Crumb>{api}</Crumb>
+        <Crumb>{path}</Crumb>
       </Breadcrumbs>
-    </header>
+      <Divider sx={{ mt: 4, mb: 1 }} />
+    </HeaderContainer>
   );
 };
 

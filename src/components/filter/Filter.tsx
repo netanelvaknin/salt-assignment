@@ -1,6 +1,15 @@
 import { useState, useContext, useEffect } from "react";
-import { Button, Checkbox, TextField } from "@mui/material";
+import {
+  Button,
+  Checkbox,
+  Grid,
+  FormGroup,
+  FormControlLabel,
+  Paper,
+} from "@mui/material";
 import { RouteDetailsContext } from "../../contexts/route-details/RouteDetails";
+import SearchIcon from "@mui/icons-material/Search";
+import { SearchField, Apply } from "./Filter.styled";
 
 export const Filter = () => {
   const { details, setFilteredDetails } = useContext(RouteDetailsContext);
@@ -76,19 +85,44 @@ export const Filter = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <TextField
-        placeholder="Search"
-        value={keyword}
-        onChange={(e) => setKeyword(e.target.value)}
-      />
-      <Checkbox
-        value={showOnlyPii}
-        onChange={(e) => setShowOnlyPii(e.target.checked)}
-      />
-      <Button type="submit" variant="contained">
-        APPLY
-      </Button>
-      <Button onClick={resetFilter}>Reset Filter</Button>
+      <Paper>
+        <Grid container alignItems="center">
+          <Grid item xs={7}>
+            <SearchField
+              placeholder="Search"
+              value={keyword}
+              InputProps={{
+                startAdornment: <SearchIcon sx={{ mr: "20px" }} />,
+              }}
+              onChange={(e) => setKeyword(e.target.value)}
+            />
+          </Grid>
+
+          <Grid item xs={3}>
+            <FormGroup>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    value={showOnlyPii}
+                    onChange={(e) => setShowOnlyPii(e.target.checked)}
+                  />
+                }
+                label="Show PII only"
+              />
+            </FormGroup>
+          </Grid>
+
+          <Grid item xs={2}>
+            <Apply type="submit" variant="contained">
+              APPLY
+            </Apply>
+          </Grid>
+        </Grid>
+      </Paper>
+
+      <Grid container justifyContent="flex-end">
+        <Button onClick={resetFilter}>Reset Filter</Button>
+      </Grid>
     </form>
   );
 };

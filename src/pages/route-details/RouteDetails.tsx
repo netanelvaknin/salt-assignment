@@ -1,7 +1,8 @@
 import { useState, useContext } from "react";
 import { RouteDetailsContext } from "../../contexts/route-details/RouteDetails";
+import { Tabs } from "@mui/material";
+import { Preview, RouteTab } from "./RouteDetails.styled";
 import Header from "../../components/header/Header";
-import { Tabs, Tab } from "@mui/material";
 import EndpointDetails from "../../components/endpoint-details/EndpointDetails";
 import Filter from "../../components/filter/Filter";
 
@@ -23,14 +24,16 @@ export const RouteDetails = () => {
         path={details?.path}
       />
 
-      <Tabs value={tab} onChange={handleTabChange}>
-        <Tab label="Request" />
-        <Tab label="Response" />
+      <Tabs value={tab} sx={{ pl: "15px" }} onChange={handleTabChange}>
+        <RouteTab label="Request" />
+        <RouteTab label="Response" />
       </Tabs>
 
-      <Filter />
+      <Preview>
+        <Filter />
 
-      <EndpointDetails value={tab} data={selectedTabData} />
+        <EndpointDetails value={tab} data={selectedTabData} />
+      </Preview>
     </div>
   );
 };
