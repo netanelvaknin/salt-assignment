@@ -1,9 +1,10 @@
 import TabPanel from "../tab-panel/TabPanel";
 import RouteDetailsTable from "../route-details-list/RouteDetailsList";
+import { Details } from "../../contexts/route-details/RouteDetails";
 
 interface EndpointDetailsProps {
   value: number;
-  data: any;
+  data: Details;
 }
 
 export const EndpointDetails = ({ value, data }: EndpointDetailsProps) => {

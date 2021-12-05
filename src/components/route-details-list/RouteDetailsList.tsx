@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { RouteDetailsContext } from "../../contexts/route-details/RouteDetails";
-import { RowHeading } from "./RouteDetailsList.styled";
+import { RowHeading, DetailsListContainer } from "./RouteDetailsList.styled";
 import { IconButton, Grid } from "@mui/material";
 import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
 import Headers from "./headers/Headers";
@@ -43,14 +43,7 @@ export const RouteDetailsList = ({
   };
 
   return (
-    <div
-      style={{
-        width: "100%",
-        textAlign: "left",
-        background: "#fff",
-        padding: "10px",
-      }}
-    >
+    <DetailsListContainer>
       <Headers />
 
       {data?.urlParams?.length > 0 && (
@@ -161,7 +154,7 @@ export const RouteDetailsList = ({
             ))}
         </>
       )}
-    </div>
+    </DetailsListContainer>
   );
 };
 

@@ -4,6 +4,13 @@ interface ButtonProps {
   isActive: boolean;
 }
 
+export const DetailsListContainer = styled("div")`
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  padding: 10px;
+`;
+
 export const RowHeading = styled("div")`
   font-weight: bold;
   cursor: pointer;

@@ -7,7 +7,10 @@ import {
   FormControlLabel,
   Paper,
 } from "@mui/material";
-import { RouteDetailsContext } from "../../contexts/route-details/RouteDetails";
+import {
+  RouteDetailsContext,
+  Parameter,
+} from "../../contexts/route-details/RouteDetails";
 import SearchIcon from "@mui/icons-material/Search";
 import { SearchField, Apply } from "./Filter.styled";
 
@@ -22,7 +25,7 @@ export const Filter = () => {
     }
   }, [keyword, details, setFilteredDetails]);
 
-  const findRows = (param: any) => {
+  const findRows = (param: Parameter) => {
     if (showOnlyPii) {
       return (
         param.name.toLowerCase().includes(keyword.toLowerCase()) &&
@@ -33,7 +36,7 @@ export const Filter = () => {
     }
   };
 
-  const findPiiRows = (param: any) => {
+  const findPiiRows = (param: Parameter) => {
     return param.pii === true;
   };
 
@@ -87,7 +90,7 @@ export const Filter = () => {
     <form onSubmit={handleSubmit}>
       <Paper>
         <Grid container alignItems="center">
-          <Grid item xs={7}>
+          <Grid item xs={6} md={7}>
             <SearchField
               placeholder="Search"
               value={keyword}
@@ -98,7 +101,7 @@ export const Filter = () => {
             />
           </Grid>
 
-          <Grid item xs={3}>
+          <Grid item xs={4} md={3}>
             <FormGroup>
               <FormControlLabel
                 control={
@@ -112,7 +115,7 @@ export const Filter = () => {
             </FormGroup>
           </Grid>
 
-          <Grid item xs={2}>
+          <Grid item xs={2} md={2}>
             <Apply type="submit" variant="contained">
               APPLY
             </Apply>
