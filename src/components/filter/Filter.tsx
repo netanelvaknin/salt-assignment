@@ -79,6 +79,7 @@ export const Filter = () => {
   const resetFilter = () => {
     setFilteredDetails(details);
     setKeyword("");
+    setShowOnlyPii(false);
   };
 
   const handleSubmit = (e: React.SyntheticEvent) => {
@@ -106,7 +107,7 @@ export const Filter = () => {
               <FormControlLabel
                 control={
                   <Checkbox
-                    value={showOnlyPii}
+                    checked={showOnlyPii}
                     onChange={(e) => setShowOnlyPii(e.target.checked)}
                   />
                 }
